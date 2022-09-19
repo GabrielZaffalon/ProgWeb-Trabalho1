@@ -38,3 +38,13 @@ export const clienteUpdate = async (req, res) => {
       res.status(400).json({ id: 0, msg: "Erro: " + error.message })
   }
 }
+
+export const clientesDelete = async (req, res) => {
+  const { id } = req.params
+  try {
+      await dbKnex("clientes").where({ id }).del()
+      res.status(200).json({ msg: "Deletado com sucesso" })
+  } catch (error) {
+      res.status(400).json({ id: 0, msg: "Erro: " + error.message })
+  }
+}

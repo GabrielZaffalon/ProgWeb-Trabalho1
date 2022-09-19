@@ -8,7 +8,7 @@ import {
     GamesStore,
     GamesUpdate,
 } from "./controllers/GamesController.js"
-import { clienteIndex, clienteStore, clienteUpdate } from "./controllers/ClienteController.js"
+import { clienteIndex, clienteStore, clienteUpdate, clientesDelete } from "./controllers/ClienteController.js"
 const router = Router()
 
 router.use(json())
@@ -22,6 +22,6 @@ router
     .get("/games/pesqgenero/:genero", GamesAno)
     .get("/games/pesqnota/:nota", GamesNota)
 
-router.get("/clientes", clienteIndex).post("/clientes", clienteStore).put("/clientes/:id", clienteUpdate)
+router.get("/clientes", clienteIndex).post("/clientes", clienteStore).put("/clientes/:id", clienteUpdate).delete("/clientes/:id", clientesDelete)
 
 export default router
